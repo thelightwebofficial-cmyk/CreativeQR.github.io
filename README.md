@@ -2,6 +2,8 @@
 
 **CreativeQR** is a client-side QR and barcode studio with a 3D visualizer and **Scanny**, a browser-based camera scanner.
 
+**Creator & copyright holder:** Light Shadow Knight
+
 ## Live site
 
 Once GitHub Pages is enabled for this repository, the site is published at:
@@ -53,8 +55,16 @@ See [SECURITY.md](SECURITY.md) for the security policy and deployment limitation
 
 The application includes an inlined Three.js runtime. The embedded Three.js code is distributed under the MIT License. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-## License
+**Important:** The third-party Three.js component remains under its original third-party license. This does not grant any license to CreativeQR's original code, design, branding, or other original project material.
 
-CreativeQR application code is licensed under the MIT License. See [LICENSE](LICENSE).
+## License and ownership
 
-Copyright © 2026 CreativeQR.
+CreativeQR's original application code, design, branding, documentation, and original creative assets are **All Rights Reserved** and are owned by **Light Shadow Knight**.
+
+No permission is granted to copy, reproduce, modify, redistribute, publish, sublicense, sell, or create derivative works from the original CreativeQR material without prior written permission from the copyright holder.
+
+Third-party components are governed only by their respective licenses.
+
+See [LICENSE](LICENSE).
+
+**Copyright © 2026 Light Shadow Knight. All rights reserved.**
