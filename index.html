@@ -1622,7 +1622,7 @@ const Stage = (function () {
   const memory = navigator.deviceMemory || 4;
   const lowEnd = cores <= 4 || memory <= 4;
   const targetFrameMs = lowEnd ? 33 : 16;
-  let lastRenderAt = 0;
+  let lastRenderAt = -Infinity;
 
   let scene, camera, renderer, controls, clock, panelEl;
   let world, envGroup, ground, stars, hemi, sun, dotTex, bubbleTex;
@@ -1712,12 +1712,13 @@ const Stage = (function () {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.05;
     if ('outputColorSpace' in renderer && THREE.SRGBColorSpace) renderer.outputColorSpace = THREE.SRGBColorSpace;
-    renderer.shadowMap.autoUpdate = false;           // static shadows: rendered on demand only
+    renderer.shadowMap.autoUpdate = !lowEnd;           // avoid shadow-map bookkeeping on low-end devices
     container.appendChild(renderer.domElement);
     renderer.domElement.addEventListener('webglcontextlost', e => e.preventDefault());
 
     scene = new THREE.Scene();
     scene.background = new THREE.Color(THEMES.forest.bg);
+     renderer.setClearColor(THEMES.forest.bg, 1);
     scene.fog = new THREE.FogExp2(THEMES.forest.fog, THEMES.forest.fogD);
 
     camera = new THREE.PerspectiveCamera(BASE_FOV, window.innerWidth / window.innerHeight, 0.5, 420);
@@ -2158,7 +2159,15 @@ const Stage = (function () {
     for (let i = 0; i < updaters.length; i++) updaters[i](t, dt);
     if (t * 1000 - lastRenderAt >= targetFrameMs || tween || growth || controls.enabled === false) {
       lastRenderAt = t * 1000;
-      renderer.render(scene, camera);
+      try {
+        renderer.render(scene, camera);
+      } catch (err) {
+        // Recover from transient low-end WebGL failures by lowering render resolution.
+        if (pr > 0.7) {
+          pr = 0.7; renderer.setPixelRatio(pr); renderer.setSize(window.innerWidth, window.innerHeight);
+          try { renderer.render(scene, camera); } catch (_) { console.warn('WebGL render failed:', err); }
+        } else console.warn('WebGL render failed:', err);
+      }
     }
   }
 
