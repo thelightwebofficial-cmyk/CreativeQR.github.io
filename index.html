@@ -1769,6 +1769,9 @@ const Stage = (function () {
 
     envGroup = new THREE.Group(); world.add(envGroup);
 
+    // Build the initial environment before the first frame.
+    buildEnv('forest');
+
     clock = new THREE.Clock();
     window.addEventListener('resize', onResize);
     if (window.ResizeObserver) new ResizeObserver(() => { updateView(); }).observe(panelEl);
