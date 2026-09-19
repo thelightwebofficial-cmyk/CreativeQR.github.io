@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "CreativeQR"
+message: "CreativeQR is a client-side QR and barcode studio with a 3D visualizer and browser camera scanner."
+type: software
+authors:
+  - name: "CreativeQR Contributors"
+year: 2026
+license: MIT
+repository-code: "https://github.com/thelightwebofficial-cmyk/CreativeQR.github.io"
