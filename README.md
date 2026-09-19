@@ -55,15 +55,21 @@ See [SECURITY.md](SECURITY.md) for the security policy and deployment limitation
 
 The application includes an inlined Three.js runtime. The embedded Three.js code is distributed under the MIT License. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-**Important:** The third-party Three.js component remains under its original third-party license. This does not grant any license to CreativeQR's original code, design, branding, or other original project material.
+**Important:** The third-party Three.js component remains under its original third-party license. That license does not grant permission to modify, sell, or redistribute CreativeQR's original code, design, branding, or other original project material.
 
-## License and ownership
+## Usage, attribution, and ownership
 
-CreativeQR's original application code, design, branding, documentation, and original creative assets are **All Rights Reserved** and are owned by **Light Shadow Knight**.
+CreativeQR's original application code, design, branding, documentation, and original creative assets are owned by **Light Shadow Knight**.
 
-No permission is granted to copy, reproduce, modify, redistribute, publish, sublicense, sell, or create derivative works from the original CreativeQR material without prior written permission from the copyright holder.
+You may use and include CreativeQR in your own personal, educational, portfolio, or other projects, provided you give clear credit such as:
 
-Third-party components are governed only by their respective licenses.
+> CreativeQR by Light Shadow Knight
+
+You may not modify the original CreativeQR work, remove its attribution, sell CreativeQR itself, or sell a modified/repackaged version without prior written permission.
+
+If you discover a bug, security issue, compatibility problem, or other issue, you may identify and correct the issue for the purpose of using CreativeQR in your project. Please contact Light Shadow Knight with the issue and, where possible, the proposed correction so it can be reviewed and incorporated into the official project. The correction should not be redistributed as a separate modified version of CreativeQR without permission.
+
+Third-party components remain subject to their own licenses.
 
 See [LICENSE](LICENSE).
 
